@@ -1,0 +1,12 @@
+cd C:\
+{
+  "title": "Abandoned Cart Schema",
+  "type": "object",
+  "properties": {
+    "first_name": { "type": "string", "default": "Sam" },
+    "cart_items": { "type": "array", "items": { "type": "object", "properties": { "name": {"type":"string"}, "price": {"type":"string"} } }, "default": [] },
+    "cart_url": { "type": "string", "format": "uri", "default": "https://example.com/cart" },
+    "support_email": { "type": "string", "format": "email", "default": "help@example.com" }
+  },
+  "required": ["first_name", "cart_items"]
+}

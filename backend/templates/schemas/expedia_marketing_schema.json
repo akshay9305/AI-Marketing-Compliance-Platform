@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Expedia Marketing Email Template Schema",
+  "type": "object",
+  "properties": {
+    "subject": { "type": "string", "description": "Email subject line" },
+    "preheader": { "type": "string", "description": "Hidden preview text shown in inboxes" },
+    "hero_image": { "type": "string", "format": "uri", "description": "URL of hero image" },
+    "offer_code": { "type": "string", "description": "Promotional code for the offer" },
+    "cta_url": { "type": "string", "format": "uri", "description": "Primary call-to-action URL" },
+    "destinations": {
+      "type": "array",
+      "description": "Featured destinations or cards",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "image": { "type": "string", "format": "uri" },
+          "subtitle": { "type": "string" }
+        },
+        "required": ["title"]
+      }
+    }
+  },
+  "required": ["subject", "cta_url"],
+  "additionalProperties": false
+}

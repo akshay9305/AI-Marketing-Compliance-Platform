@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Offer Just for You</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+        }
+        .header {
+            background-color: #2c3e50;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            color: #ffffff;
+            margin: 0;
+            font-size: 28px;
+        }
+        .logo {
+            color: #3498db;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .greeting {
+            background-color: #3498db;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            font-size: 20px;
+        }
+        .content {
+            padding: 30px 20px;
+        }
+        .content p {
+            color: #333333;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        .product-section {
+            background-color: #ecf0f1;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .product-item {
+            background-color: #ffffff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            display: table;
+            width: 100%;
+        }
+        .product-image {
+            display: table-cell;
+            width: 120px;
+            vertical-align: middle;
+        }
+        .product-image img {
+            width: 100px;
+            height: 100px;
+            border-radius: 5px;
+        }
+        .product-details {
+            display: table-cell;
+            vertical-align: middle;
+            padding-left: 15px;
+        }
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .product-price {
+            font-size: 20px;
+            color: #e74c3c;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .old-price {
+            text-decoration: line-through;
+            color: #95a5a6;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        .discount-badge {
+            background-color: #e74c3c;
+            color: #ffffff;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #3498db;
+            color: #ffffff;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .cta-button:hover {
+            background-color: #2980b9;
+        }
+        .tier-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            padding: 15px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .footer {
+            background-color: #2c3e50;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+        }
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    %%[
+        /* Declare Variables */
+        VAR @firstName, @lastName, @email, @memberTier, @loyaltyPoints
+        VAR @product1Name, @product1Price, @product1OldPrice, @product1Image, @product1URL
+        VAR @product2Name, @product2Price, @product2OldPrice, @product2Image, @product2URL
+        VAR @product3Name, @product3Price, @product3OldPrice, @product3Image, @product3URL
+        VAR @discountPercent, @expiryDate, @greeting, @tierMessage, @tierDiscount
+        
+        /* Get subscriber data */
+        SET @firstName = AttributeValue("FirstName")
+        SET @lastName = AttributeValue("LastName")
+        SET @email = AttributeValue("EmailAddress")
+        SET @memberTier = AttributeValue("MemberTier")
+        SET @loyaltyPoints = AttributeValue("LoyaltyPoints")
+        
+        /* Set default values if empty */
+        IF Empty(@firstName) THEN
+            SET @firstName = "Valued Customer"
+        ENDIF
+        
+        IF Empty(@memberTier) THEN
+            SET @memberTier = "Silver"
+        ENDIF
+        
+        IF Empty(@loyaltyPoints) THEN
+            SET @loyaltyPoints = 0
+        ENDIF
+        
+        /* Product 1 Data */
+        SET @product1Name = "Premium Wireless Headphones"
+        SET @product1OldPrice = "199.99"
+        SET @product1Price = "149.99"
+        SET @product1Image = "https://via.placeholder.com/100/3498db/ffffff?text=Headphones"
+        SET @product1URL = "https://example.com/product1"
+        
+        /* Product 2 Data */
+        SET @product2Name = "Smart Fitness Watch"
+        SET @product2OldPrice = "299.99"
+        SET @product2Price = "229.99"
+        SET @product2Image = "https://via.placeholder.com/100/e74c3c/ffffff?text=Watch"
+        SET @product2URL = "https://example.com/product2"
+        
+        /* Product 3 Data */
+        SET @product3Name = "Portable Bluetooth Speaker"
+        SET @product3OldPrice = "89.99"
+        SET @product3Price = "59.99"
+        SET @product3Image = "https://via.placeholder.com/100/2ecc71/ffffff?text=Speaker"
+        SET @product3URL = "https://example.com/product3"
+        
+        /* Calculate discount */
+        SET @discountPercent = "25"
+        
+        /* Set expiry date (7 days from now) */
+        SET @expiryDate = Format(DateAdd(Now(), 7, "D"), "MMMM dd, yyyy")
+        
+        /* Personalized greeting based on time */
+        VAR @currentHour
+        SET @currentHour = Format(Now(), "HH")
+        
+        IF @currentHour < 12 THEN
+            SET @greeting = "Good Morning"
+        ELSEIF @currentHour < 18 THEN
+            SET @greeting = "Good Afternoon"
+        ELSE
+            SET @greeting = "Good Evening"
+        ENDIF
+        
+        /* Tier-based messaging */
+        IF @memberTier == "Gold" THEN
+            SET @tierMessage = "As a Gold member, enjoy FREE shipping on all orders!"
+            SET @tierDiscount = "30"
+        ELSEIF @memberTier == "Platinum" THEN
+            SET @tierMessage = "As a Platinum member, get an EXTRA 10% off + FREE express shipping!"
+            SET @tierDiscount = "35"
+        ELSE
+            SET @tierMessage = "Upgrade to Gold for even better deals!"
+            SET @tierDiscount = "25"
+        ENDIF
+    ]%%
+
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">TechStore</div>
+            <h1>Exclusive Member Sale</h1>
+        </div>
+
+        <!-- Personalized Greeting -->
+        <div class="greeting">
+            %%=v(@greeting)=%%, %%=v(@firstName)=%%!
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <p>We've handpicked these special deals just for you. Don't miss out on savings up to <strong>%%=v(@tierDiscount)=%%% OFF</strong>!</p>
+
+            %%[ IF @memberTier == "Gold" OR @memberTier == "Platinum" THEN ]%%
+            <div class="tier-banner">
+                <strong>🌟 %%=v(@memberTier)=%% Member Exclusive 🌟</strong><br>
+                %%=v(@tierMessage)=%%
+            </div>
+            %%[ ENDIF ]%%
+
+            <!-- Products Section -->
+            <div class="product-section">
+                <h2 style="color: #2c3e50; margin-top: 0;">Today's Hot Deals</h2>
+
+                <!-- Product 1 -->
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="%%=v(@product1Image)=%%" alt="%%=v(@product1Name)=%%">
+                    </div>
+                    <div class="product-details">
+                        <div class="product-name">%%=v(@product1Name)=%%</div>
+                        <div class="product-price">
+                            <span class="old-price">$%%=v(@product1OldPrice)=%%</span>
+                            <span>$%%=v(@product1Price)=%%</span>
+                            <span class="discount-badge">SAVE %%=v(@discountPercent)=%%%</span>
+                        </div>
+                        <a href="%%=v(@product1URL)=%%" class="cta-button" style="padding: 10px 20px; font-size: 14px;">Shop Now</a>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="%%=v(@product2Image)=%%" alt="%%=v(@product2Name)=%%">
+                    </div>
+                    <div class="product-details">
+                        <div class="product-name">%%=v(@product2Name)=%%</div>
+                        <div class="product-price">
+                            <span class="old-price">$%%=v(@product2OldPrice)=%%</span>
+                            <span>$%%=v(@product2Price)=%%</span>
+                            <span class="discount-badge">SAVE %%=v(@discountPercent)=%%%</span>
+                        </div>
+                        <a href="%%=v(@product2URL)=%%" class="cta-button" style="padding: 10px 20px; font-size: 14px;">Shop Now</a>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="%%=v(@product3Image)=%%" alt="%%=v(@product3Name)=%%">
+                    </div>
+                    <div class="product-details">
+                        <div class="product-name">%%=v(@product3Name)=%%</div>
+                        <div class="product-price">
+                            <span class="old-price">$%%=v(@product3OldPrice)=%%</span>
+                            <span>$%%=v(@product3Price)=%%</span>
+                            <span class="discount-badge">SAVE %%=v(@discountPercent)=%%%</span>
+                        </div>
+                        <a href="%%=v(@product3URL)=%%" class="cta-button" style="padding: 10px 20px; font-size: 14px;">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="center">
+                <p><strong>⏰ Hurry! Offer expires on %%=v(@expiryDate)=%%</strong></p>
+                <a href="https://example.com/shop" class="cta-button">View All Deals</a>
+            </div>
+
+            %%[ IF @loyaltyPoints > 0 THEN ]%%
+            <p style="background-color: #fffbcc; padding: 15px; border-radius: 5px; margin-top: 20px;">
+                <strong>💰 Your Loyalty Points:</strong> You have <strong>%%=v(@loyaltyPoints)=%%</strong> points available! 
+                <a href="https://example.com/rewards" style="color: #3498db;">Redeem Now</a>
+            </p>
+            %%[ ENDIF ]%%
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>You're receiving this email because you're a valued member of TechStore.</p>
+            <p>
+                <a href="%%profile_center_url%%">Update Preferences</a> | 
+                <a href="%%unsub_center_url%%">Unsubscribe</a>
+            </p>
+            <p>
+                TechStore Inc. | 123 Tech Avenue, San Francisco, CA 94102<br>
+                &copy; 2025 TechStore. All rights reserved.
+            </p>
+            <p style="font-size: 10px; color: #95a5a6; margin-top: 15px;">
+                %%Member_Busname%%<br>
+                %%Member_Addr%%<br>
+                %%Member_City%%, %%Member_State%% %%Member_PostalCode%% %%Member_Country%%
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Template with Malformed URIs</title>
+</head>
+<body>
+  <!-- Test various malformed URIs that could cause Vite errors -->
+  
+  <!-- File URLs -->
+  <img src="file:///C:/Users/test/image.png" alt="File URL" />
+  
+  <!-- Windows absolute paths -->
+  <img src="C:\Users\test\image.png" alt="Windows path" />
+  <a href="D:\projects\file.html">Windows link</a>
+  
+  <!-- UNC paths -->
+  <img src="\\server\share\image.png" alt="UNC path" />
+  
+  <!-- Mixed backslashes -->
+  <img src="images\subfolder\test.jpg" alt="Backslash path" />
+  
+  <!-- Percent-encoded backslashes -->
+  <img src="images%5Csubfolder%5Ctest.jpg" alt="Encoded backslash" />
+  
+  <!-- Valid URLs (should not be sanitized) -->
+  <img src="https://example.com/image.jpg" alt="Valid HTTPS" />
+  <img src="https://images.expedia.com/image/upload/c_scale,w_600/v1/Expedia/Destinations/paris.jpg" alt="Valid URL" />
+  <a href="https://www.example.com/page">Valid link</a>
+  
+  <!-- Relative paths (should not be sanitized) -->
+  <img src="images/test.jpg" alt="Relative path" />
+  <img src="./images/test.jpg" alt="Relative path with dot" />
+  <img src="../images/test.jpg" alt="Relative path parent" />
+  
+  <!-- Data URIs (should not be sanitized) -->
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Data URI" />
+  
+  <!-- AMPScript placeholders -->
+  <h1>Welcome, {{FirstName}}!</h1>
+  <img src="{{DestinationImage}}" alt="{{DestinationName}}" />
+  <a href="{{PrimaryCTAURL}}">{{PrimaryCTAText}}</a>
+</body>
+</html>

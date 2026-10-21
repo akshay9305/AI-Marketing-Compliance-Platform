@@ -1,0 +1,15 @@
+{
+  "title": "Newsletter Schema",
+  "type": "object",
+  "properties": {
+    "company_name": { "type": "string", "default": "Acme Corp" },
+    "first_name": { "type": "string", "default": "Taylor" },
+    "feature_highlight": { "type": "string", "default": "New in our catalog" },
+    "article_1_title": { "type": "string", "default": "Top Destinations" },
+    "article_1_url": { "type": "string", "format": "uri", "default": "https://example.com/articles/top-destinations" },
+    "twitter_url": { "type": "string", "format": "uri", "default": "https://twitter.com/example" },
+    "linkedin_url": { "type": "string", "format": "uri", "default": "https://linkedin.com/company/example" },
+    "unsubscribe_url": { "type": "string", "format": "uri", "default": "https://example.com/unsubscribe" }
+  },
+  "required": ["company_name"]
+}

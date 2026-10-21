@@ -1,0 +1,14 @@
+{
+  "title": "Spring Promotion Schema",
+  "type": "object",
+  "properties": {
+    "first_name": { "type": "string", "default": "Alex" },
+    "company_name": { "type": "string", "default": "Acme Corp" },
+    "discount_amount": { "type": "string", "default": "20%" },
+    "offer_code": { "type": "string", "default": "SPRING20" },
+    "cta_url": { "type": "string", "format": "uri", "default": "https://example.com/offers" },
+    "expiration_date": { "type": "string", "default": "2025-05-31" },
+    "unsubscribe_url": { "type": "string", "format": "uri", "default": "https://example.com/unsubscribe" }
+  },
+  "required": ["first_name", "offer_code"]
+}

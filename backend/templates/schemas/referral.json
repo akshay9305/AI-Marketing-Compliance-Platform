@@ -1,0 +1,12 @@
+{
+  "title": "Referral Invite Schema",
+  "type": "object",
+  "properties": {
+    "friend_name": { "type": "string", "default": "Jordan" },
+    "referee_reward": { "type": "string", "default": "10" },
+    "referrer_reward": { "type": "string", "default": "10" },
+    "referral_url": { "type": "string", "format": "uri", "default": "https://example.com/referral" },
+    "unsubscribe_url": { "type": "string", "format": "uri", "default": "https://example.com/unsubscribe" }
+  },
+  "required": ["referral_url"]
+}

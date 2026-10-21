@@ -1,0 +1,44 @@
+fastapi==0.104.1
+uvicorn==0.24.0
+pydantic==2.5.0
+requests>=2.31.0
+python-multipart==0.0.6
+# HTTP client used by some backend utilities/tests
+httpx==0.24.1
+# Load .env files during local development (optional)
+python-dotenv==1.0.0
+# Email validator used by Pydantic's EmailStr
+email-validator>=2.1.0
+# Optional: OpenAI Python client (set OPENAI_API_KEY in env for LLM calls)
+openai==1.31.0
+# pydantic-settings provides the `pydantic_settings` module used by config
+pydantic-settings>=0.1.0
+
+# Additional runtime dependencies discovered by scanning backend imports
+# - python-json-logger provides the `pythonjsonlogger` module used by logging
+# - beautifulsoup4 provides `bs4` used by content parsing
+# - psutil is used by resource_helper for memory checks
+python-json-logger==2.0.7
+beautifulsoup4==4.12.2
+psutil==5.9.5
+css-inline>=0.14.0
+
+# Image processing and visual comparison for template validation
+playwright>=1.40.0
+scikit-image>=0.22.0
+opencv-python>=4.8.0
+numpy>=1.24.0
+Pillow>=10.0.0
+# LangChain dependencies for LLM operations
+langchain>=0.2.7
+langchain-openai>=0.1.8
+
+# MJML is required for MJML -> HTML compilation used by
+# `backend/services/mjml_ampscript_renderer.py`.
+#
+# Recommended (preferred): install the MJML CLI via npm (Node.js):
+#   npm install -g mjml
+#
+# Alternative: you may install a Python wrapper (if available) but
+# the CLI is the most reliable. If you install mjml via npm globally,
+# the backend will call the `mjml` command automatically.

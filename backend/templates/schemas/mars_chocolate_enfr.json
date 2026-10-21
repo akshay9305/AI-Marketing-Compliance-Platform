@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Mars Chocolate Marketing Template - fr-FR",
+  "description": "Schema for Mars chocolate holiday marketing email template (French)",
+  "type": "object",
+  "properties": {
+    "header": {
+      "type": "object",
+      "properties": {
+        "brand_name": { "type": "string", "default": "MARS Chocolat" },
+        "tagline": { "type": "string", "default": "Savourez la Douceur" }
+      }
+    },
+    "hero": {
+      "type": "object",
+      "properties": {
+        "headline": { "type": "string", "default": "Les Offres Gourmandes des Fêtes Sont Arrivées!" },
+        "body_text": { "type": "string" },
+        "cta_text": { "type": "string", "default": "Acheter Maintenant" },
+        "cta_url": { "type": "string", "format": "uri", "default": "https://www.mars.com/made-by-mars/mars-wrigley" }
+      }
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "link_url": { "type": "string", "format": "uri" }
+        }
+      },
+      "default": [
+        { "name": "Snickers", "description": "Garni de cacahuètes, caramel et nougat", "link_url": "https://www.snickers.com/" },
+        { "name": "M&M's", "description": "Bonbons chocolatés colorés", "link_url": "https://www.mms.com/" },
+        { "name": "Twix", "description": "Barres biscuitées au caramel et chocolat", "link_url": "https://www.twix.com/" }
+      ]
+    },
+    "promo": {
+      "type": "object",
+      "properties": {
+        "headline": { "type": "string", "default": "Offre Exclusive Membre" },
+        "description": { "type": "string", "default": "Utilisez le code ci-dessous pour 20% de réduction sur votre prochaine commande!" },
+        "promo_code": { "type": "string", "default": "DOUX20" }
+      }
+    },
+    "social_links": {
+      "type": "object",
+      "properties": {
+        "facebook": { "type": "string", "format": "uri", "default": "https://www.facebook.com/Mars" },
+        "instagram": { "type": "string", "format": "uri", "default": "https://www.instagram.com/marsglobal/" },
+        "twitter": { "type": "string", "format": "uri", "default": "https://twitter.com/MarsGlobal" },
+        "youtube": { "type": "string", "format": "uri", "default": "https://www.youtube.com/user/Mars" }
+      }
+    },
+    "footer": {
+      "type": "object",
+      "properties": {
+        "company_address": { "type": "string", "default": "Mars, Incorporated | 6885 Elm Street, McLean, VA 22101" },
+        "contact_url": { "type": "string", "format": "uri", "default": "https://www.mars.com/contact-us" },
+        "privacy_url": { "type": "string", "format": "uri", "default": "https://www.mars.com/privacy" },
+        "preferences_url": { "type": "string", "format": "uri", "default": "https://www.mars.com/preferences" }
+      }
+    }
+  },
+  "locale": "fr-FR"
+}

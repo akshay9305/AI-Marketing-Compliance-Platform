@@ -1,0 +1,12 @@
+{
+  "title": "Welcome Email Schema",
+  "type": "object",
+  "properties": {
+    "first_name": { "type": "string", "title": "First name", "default": "Jane" },
+    "company_name": { "type": "string", "title": "Company name", "default": "Acme Corp" },
+    "cta_url": { "type": "string", "format": "uri", "default": "https://example.com/get-started" },
+    "support_email": { "type": "string", "format": "email", "default": "support@example.com" },
+    "unsubscribe_url": { "type": "string", "format": "uri", "default": "https://example.com/unsubscribe" }
+  },
+  "required": ["first_name", "company_name"]
+}

@@ -1,0 +1,17 @@
+{
+  "FirstName": "",
+  "LastName": "Johnson",
+  "EmailAddress": "sarah.johnson@example.com",
+  "MemberTier": "Platinum",
+  "LoyaltyPoints": 1250,
+  "SubscriberKey": "SUB123456",
+  "MemberSince": "2023-05-15",
+  "_profile_center_url": "https://example.com/profile",
+  "_unsub_center_url": "https://example.com/unsubscribe",
+  "_Member_Busname": "TechStore Inc.",
+  "_Member_Addr": "123 Tech Avenue",
+  "_Member_City": "San Francisco",
+  "_Member_State": "CA",
+  "_Member_PostalCode": "94102",
+  "_Member_Country": "USA"
+}
